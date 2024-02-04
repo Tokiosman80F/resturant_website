@@ -31,7 +31,7 @@ const Footer = () => {
       <div className=" footer-center p-4  bg-black text-white">
         <aside>
           <p>
-            Copyright © {currentYear}- All right reserved by CulinaryCloud Ltd
+            Copyright © {currentYear}- All right reserved by Captain Culinary   Ltd
           </p>
         </aside>
       </div>

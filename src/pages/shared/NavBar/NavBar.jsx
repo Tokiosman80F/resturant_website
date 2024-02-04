@@ -1,55 +1,99 @@
+import { NavLink } from "react-router-dom";
+import logo from "../../../assets/logo.png";
+import { FaUserCircle } from "react-icons/fa";
+import { IoCartOutline } from "react-icons/io5";
+import { FaBars } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
+import { useState } from "react";
 const NavBar = () => {
+  const [toogle, setToogle] = useState(false);
   const navItems = (
     <>
-      <li>
-        <a>Item 1</a>
-      </li>
+      <NavLink
+        to="/"
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active text-yellow-400 " : ""
+        }
+      >
+        Home
+      </NavLink>
 
-      <li>
-        <a>Item 3</a>
-      </li>
+      <NavLink
+        to="/contact"
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active  text-yellow-400" : ""
+        }
+      >
+        Contact Us
+      </NavLink>
+
+      <NavLink
+        to="/dashboard"
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active  text-yellow-400" : ""
+        }
+      >
+        DashBoard
+      </NavLink>
+
+      <NavLink
+        to="/menu"
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active  text-yellow-400" : ""
+        }
+      >
+        Our Menu
+      </NavLink>
+
+      <NavLink
+        to="/shop"
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active  text-yellow-400" : ""
+        }
+      >
+        Our Shop
+      </NavLink>
     </>
   );
   return (
-    <div>
-      <div className="navbar bg-base-200">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-                {navItems}
-            </ul>
-          </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-          {navItems}
-          </ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
-        </div>
+    <nav className="flex justify-around items-center py-4 bg-gray-400 gap-4 relative">
+      {/* logo */}
+      <div>
+        <a className="flex gap-2 items-center font-semibold text-xl ">
+          <img src={logo} alt="" /> <span>Captain Culinay</span>
+        </a>
       </div>
-    </div>
+      {/* nav item */}
+      <div className="list-none capitalize text-base flex gap-5">
+        {navItems}
+      </div>
+      {/* for responsive */}
+      <div
+        onClick={() => setToogle(!toogle)}
+        className="cursor-pointer text-3xl hidden"
+      >
+        {toogle ? <IoMdClose />: <FaBars /> }
+      </div>
+      {/* cart  */}
+      <div className="text-3xl">
+        <IoCartOutline />
+      </div>
+      {/* login user */}
+      <div className="flex gap-3 items-center">
+        <FaUserCircle className="text-2xl" />
+        <NavLink
+          to="/login"
+          className="text-sm px-5 py-2 bg-yellow-400 font-medium  "
+        >
+          Login
+        </NavLink>
+      </div>
+      {toogle && (
+        <div className="absolute top-20 flex flex-col bg-slate-500 w-full gap-3 py-2">
+          {navItems}
+        </div>
+      )}
+    </nav>
   );
 };
 
