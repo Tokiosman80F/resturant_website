@@ -2,7 +2,9 @@
 import CoverSection from "../shared/CoverSection/CoverSection";
 import SectionTitle from "../shared/SectionTitle/SectionTitle";
 import Banner from "./Banner";
+import CallUsCover from "./CallUsCover";
 import CategorySlider from "./CategorySlider";
+import ChefRecommanded from "./ChefRecommanded";
 import MenuSection from "./MenuSection";
 
 
@@ -15,6 +17,9 @@ const Home = () => {
           <CoverSection/>
           <SectionTitle subTitle="Check it out" mainTitle="from our menu"/>
           <MenuSection></MenuSection>
+          <CallUsCover></CallUsCover>
+          <SectionTitle subTitle="should try" mainTitle="chef recommanded"/>
+          <ChefRecommanded/>
         </>
     );
 };

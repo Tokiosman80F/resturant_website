@@ -1,6 +1,6 @@
 const MenuCard = ({ menu }) => {
   return (
-    <div className="flex gap-4  justify-between">
+    <div className="flex gap-4 bg-slate-100  justify-between">
       {/* img */}
 
       <img

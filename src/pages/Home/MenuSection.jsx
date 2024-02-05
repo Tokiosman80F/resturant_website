@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import MenuCard from "../../components/MenuCard";
+import MenuBtn from "../../components/MenuBtn";
+
 
 const MenuSection = () => {
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState([]);    
+  const handleClick=()=>{
+    console.log("hi");
+  }
+
   useEffect(() => {
     fetch(`http://localhost:3000/allMenu`)
       .then((response) => {
@@ -30,8 +36,8 @@ const MenuSection = () => {
             <MenuCard key={item._id} menu={item}></MenuCard>
           ))}
         </div>
-        <div className="text-center mt-12">
-        <button className="border-black border-b-4 rounded-lg px-5 py-2 uppercase bg-slate-100  hover:bg-yellow-400">View full menu</button>
+        <div className="text-center mt-16">
+          <MenuBtn onClick={handleClick} naming="view all menu"></MenuBtn>
         </div>
       </div>
     </>
