@@ -19,3 +19,6 @@ body {
   font-weight: 700;
   font-style: normal;
 }
+.max-width-container{
+  @apply max-w-screen-xl mx-auto container
+}
