@@ -56,15 +56,16 @@ const NavBar = () => {
     </>
   );
   return (
-    <nav className="flex justify-around items-center py-4 bg-gray-400 gap-4 relative">
+    <div className="fixed z-10 w-full">
+    <nav className="flex justify-around items-center py-4 bg-black/70  gap-4 relative">
       {/* logo */}
       <div>
         <a className="flex gap-2 items-center font-semibold text-xl ">
-          <img src={logo} alt="" /> <span>Captain Culinay</span>
+          <img src={logo} alt="" /> <span className="text-white">Captain Culinay</span>
         </a>
       </div>
       {/* nav item */}
-      <div className="list-none capitalize text-base flex gap-5">
+      <div className="list-none capitalize text-base flex gap-5 text-white">
         {navItems}
       </div>
       {/* for responsive */}
@@ -75,12 +76,12 @@ const NavBar = () => {
         {toogle ? <IoMdClose />: <FaBars /> }
       </div>
       {/* cart  */}
-      <div className="text-3xl">
+      <div className="text-3xl text-white">
         <IoCartOutline />
       </div>
       {/* login user */}
       <div className="flex gap-3 items-center">
-        <FaUserCircle className="text-2xl" />
+        <FaUserCircle className="text-2xl text-white" />
         <NavLink
           to="/login"
           className="text-sm px-5 py-2 bg-yellow-400 font-medium  "
@@ -94,6 +95,7 @@ const NavBar = () => {
         </div>
       )}
     </nav>
+    </div>
   );
 };
 
