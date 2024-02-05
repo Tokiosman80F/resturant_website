@@ -60,8 +60,8 @@ const NavBar = () => {
     <nav className="flex justify-around items-center py-4 bg-black/70  gap-4 relative">
       {/* logo */}
       <div>
-        <a className="flex gap-2 items-center font-semibold text-xl ">
-          <img src={logo} alt="" /> <span className="text-white">Captain Culinay</span>
+        <a className="flex gap-2 items-center   ">
+          <img src={logo} alt="" /> <span className="text-white logo text-2xl">Captain Culinay</span>
         </a>
       </div>
       {/* nav item */}
