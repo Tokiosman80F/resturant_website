@@ -5,8 +5,8 @@ import useMenu from "../../hooks/MenuHooks";
 
 const PopularMenuSection = () => {
   const [menus]=useMenu()
+  
   const popularMenu=menus.filter((menu)=>menu.category==="popular" )
-  console.log("the popular menu",popularMenu);
   const handleClick=()=>{
     console.log("hi");
   }
