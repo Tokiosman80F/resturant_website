@@ -3,7 +3,7 @@ import MenuCard from "../../components/MenuCard";
 import MenuBtn from "../../components/MenuBtn";
 
 
-const MenuSection = () => {
+const PopularMenuSection = () => {
   const [menu, setMenu] = useState([]);    
   const handleClick=()=>{
     console.log("hi");
@@ -44,4 +44,4 @@ const MenuSection = () => {
   );
 };
 
-export default MenuSection;
+export default PopularMenuSection;

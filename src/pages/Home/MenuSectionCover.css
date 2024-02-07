@@ -1,0 +1,7 @@
+.menu_coverImage{
+    background-image: url('../../assets/home/featured.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
