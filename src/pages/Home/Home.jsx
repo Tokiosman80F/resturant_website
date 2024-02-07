@@ -8,9 +8,11 @@ import ChefRecommanded from "./ChefRecommanded";
 import MenuSectionCover from "./MenuSectionCover";
 import PopularMenuSection from "./PopularMenuSection";
 import Testimonial from "./Testimonial";
+import { Helmet } from "react-helmet-async";
 const Home = () => {
     return (
         <>
+          <Helmet><title>Captain Culinay | Home  </title></Helmet>
           <Banner/>
           <SectionTitle subTitle="From 11:00am to 10:00pm" mainTitle="order online"/>
           <CategorySlider/>

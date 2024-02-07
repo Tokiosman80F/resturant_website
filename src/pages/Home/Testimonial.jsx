@@ -21,7 +21,7 @@ const Testimonial = () => {
   }, []);
   console.log(reviews);
   return (
-    <div className="max-width-container mb-20">
+    <div className="max-width-container mb-36">
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviews.map((custosmer) => (
           <SwiperSlide key={custosmer._id}>

@@ -1,9 +1,10 @@
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
     return (
         <div>
-            this is dashboard
+         <Helmet><title>Captain Culinay | Dashboard  </title></Helmet>
         </div>
     );
 };
