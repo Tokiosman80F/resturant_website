@@ -7,6 +7,7 @@ import CategorySlider from "./CategorySlider";
 import ChefRecommanded from "./ChefRecommanded";
 import MenuSectionCover from "./MenuSectionCover";
 import PopularMenuSection from "./PopularMenuSection";
+import Testimonial from "./Testimonial";
 const Home = () => {
     return (
         <>
@@ -20,6 +21,8 @@ const Home = () => {
           <SectionTitle subTitle="should try" mainTitle="chef recommanded"/>
           <ChefRecommanded/>
           <MenuSectionCover/>
+          <SectionTitle subTitle="what our client say" mainTitle="testimonial"/>
+          <Testimonial></Testimonial>
         </>
     );
 };
