@@ -1,38 +1,21 @@
-import { useEffect, useState } from "react";
 import MenuCard from "../../components/MenuCard";
 import MenuBtn from "../../components/MenuBtn";
+import useMenu from "../../hooks/MenuHooks";
 
 
 const PopularMenuSection = () => {
-  const [menu, setMenu] = useState([]);    
+  const [menus]=useMenu()
+  const popularMenu=menus.filter((menu)=>menu.category==="popular" )
+  console.log("the popular menu",popularMenu);
   const handleClick=()=>{
     console.log("hi");
   }
-
-  useEffect(() => {
-    fetch(`http://localhost:3000/allMenu`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Menu Data Fail to fetch From Menu Section");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const popularItems = data.filter(
-          (items) => items.category === "popular"
-        );
-        console.log("popular item =>", popularItems);
-        setMenu(popularItems);
-      })
-      .catch((error) => {
-        console.error("Error fetch in menu Data of Menu Section ", error);
-      });
-  }, []);
+  
   return (
     <>
       <div className="max-width-container my-10">
         <div className="grid grid-cols-2 gap-10">
-          {menu.map((item) => (
+          {popularMenu.map((item) => (
             <MenuCard key={item._id} menu={item}></MenuCard>
           ))}
         </div>
