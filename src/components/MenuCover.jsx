@@ -6,7 +6,7 @@ const MenuCover = ({
   subtitle,
   info,
   isToogle = "true",
-  isCoverBanner = "true",
+  isCoverBanner = "false",
 }) => {
   return (
     <figure className="relative">

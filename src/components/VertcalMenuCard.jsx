@@ -1,11 +1,12 @@
 const VertcalMenuCard = ({data}) => {
   return (
     <div>
-      <div className="card w-96 bg-base-200 rounded-none ">
+      <div className="card w-full h-[541px] bg-base-300 rounded-none ">
         <figure>
           <img
             src={data.image}
             alt="Shoes"
+            className="w-full object-cover"
           />
         </figure>
         <div className="card-body">

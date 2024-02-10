@@ -1,4 +1,3 @@
-
 import coverimg from "../../../assets/home/cover.jpg";
 import MenuCover from "../../../components/MenuCover";
 const CoverSection = () => {
