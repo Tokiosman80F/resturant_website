@@ -6,8 +6,10 @@ import "react-tabs/style/react-tabs.css";
 import "./ReactTab.css"
 import useMenu from "../../hooks/MenuHooks";
 import VertcalMenuCard from "../../components/VertcalMenuCard";
+import { useState } from "react";
 const Shop = () => {
-  
+  const [tabIndex, setTabIndex] = useState(0);
+  console.log("tab index =>",tabIndex);
   const [menus]=useMenu()
   const drinkItems=menus.filter(menu=>menu.category==="drinks")
   const dessertItems=menus.filter(menu=>menu.category==="dessert")
@@ -27,7 +29,7 @@ const Shop = () => {
         subtitle="would you like to try a dish"
       ></MenuCover>
       <div className="max-width-container my-20">
-        <Tabs>
+        <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
             <Tab>Salad</Tab>
             <Tab>Pizza</Tab>

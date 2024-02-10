@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet-async";
 import MenuCover from "../../components/MenuCover";
 import menuebannerimage from "../../assets/menu/banner3.jpg";
@@ -9,20 +10,20 @@ import saladCoverImage from "../../assets/menu/salad-bg.jpg";
 import useMenu from "../../hooks/MenuHooks";
 import MenuBtn from "../../components/MenuBtn";
 import MenuCard from "../../components/MenuCard";
+import { Link } from "react-router-dom";
 const Menu = () => {
-  const [menus]=useMenu()
-  const offeredItems=menus.filter(menu=>menu.category==="offered")
-  const dessertItems=menus.filter(menu=>menu.category==="dessert")
-  const saladItems=menus.filter(menu=>menu.category==="salad")
-  const soupItems=menus.filter(menu=>menu.category==="soup")
-  const pizzaItems=menus.filter(menu=>menu.category==="soup")
-  
-  const handleOrderFood=()=>{
+  const [menus] = useMenu();
+  const offeredItems = menus.filter((menu) => menu.category === "offered");
+  const dessertItems = menus.filter((menu) => menu.category === "dessert");
+  const saladItems = menus.filter((menu) => menu.category === "salad");
+  const soupItems = menus.filter((menu) => menu.category === "soup");
+  const pizzaItems = menus.filter((menu) => menu.category === "soup");
+
+  const handleOrderFood = () => {
     console.log("handle food");
-  }
-  
+  };
+
   return (
- 
     <>
       <Helmet>
         <title>Captain Culinay | Our Menu </title>
@@ -44,8 +45,14 @@ const Menu = () => {
             <MenuCard key={item._id} menu={item}></MenuCard>
           ))}
         </div>
+        {/* btn */}
         <div className="text-center mt-16">
-          <MenuBtn onClick={handleOrderFood} naming="Order Your favorite Food"></MenuBtn>
+          <Link to="/shop">
+            <MenuBtn
+              onClick={handleOrderFood}
+              naming="Order Your favorite Food"
+            ></MenuBtn>
+          </Link>
         </div>
       </div>
       {/* dessert */}
@@ -60,8 +67,14 @@ const Menu = () => {
             <MenuCard key={item._id} menu={item}></MenuCard>
           ))}
         </div>
+        {/* btn */}
         <div className="text-center mt-16">
-          <MenuBtn onClick={handleOrderFood} naming="Order Your favorite Food"></MenuBtn>
+          <Link to="/shop">
+            <MenuBtn
+              onClick={handleOrderFood}
+              naming="Order Your favorite Food"
+            ></MenuBtn>
+          </Link>
         </div>
       </div>
       {/* pizza */}
@@ -76,8 +89,14 @@ const Menu = () => {
             <MenuCard key={item._id} menu={item}></MenuCard>
           ))}
         </div>
+        {/* btn */}
         <div className="text-center mt-16">
-          <MenuBtn onClick={handleOrderFood} naming="Order Your favorite Food"></MenuBtn>
+          <Link to="/shop">
+            <MenuBtn
+              onClick={handleOrderFood}
+              naming="Order Your favorite Food"
+            ></MenuBtn>
+          </Link>
         </div>
       </div>
       {/* salad */}
@@ -92,8 +111,14 @@ const Menu = () => {
             <MenuCard key={item._id} menu={item}></MenuCard>
           ))}
         </div>
+        {/* btn */}
         <div className="text-center mt-16">
-          <MenuBtn onClick={handleOrderFood} naming="Order Your favorite Food"></MenuBtn>
+          <Link to="/shop">
+            <MenuBtn
+              onClick={handleOrderFood}
+              naming="Order Your favorite Food"
+            ></MenuBtn>
+          </Link>
         </div>
       </div>
       {/* soup */}
@@ -108,8 +133,14 @@ const Menu = () => {
             <MenuCard key={item._id} menu={item}></MenuCard>
           ))}
         </div>
+        {/* btn */}
         <div className="text-center mt-16">
-          <MenuBtn onClick={handleOrderFood} naming="Order Your favorite Food"></MenuBtn>
+          <Link to="/shop">
+            <MenuBtn
+              onClick={handleOrderFood}
+              naming="Order Your favorite Food"
+            ></MenuBtn>
+          </Link>
         </div>
       </div>
     </>

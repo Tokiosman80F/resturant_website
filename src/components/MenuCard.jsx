@@ -1,5 +1,6 @@
 const MenuCard = ({ menu }) => {
   return (
+    <>
     <div className="flex gap-4 bg-slate-100  justify-between">
       {/* img */}
 
@@ -8,7 +9,7 @@ const MenuCard = ({ menu }) => {
         alt=""
         style={{ borderRadius: "0 200px 200px 200px" }}
         className="w-[118px] h-[104px]"
-      />
+        />
 
       {/* detail */}
       <div>
@@ -18,6 +19,7 @@ const MenuCard = ({ menu }) => {
       {/* price */}
       <div className="text-[#BB8506] text-xl">${menu.price}</div>
     </div>
+        </>
   );
 };
 
