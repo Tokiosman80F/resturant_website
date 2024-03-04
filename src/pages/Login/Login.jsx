@@ -7,17 +7,21 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
-
+import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  
   const [loginDisable, setLoginDisable] = useState(true);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
+  
+  // --CAPTCHA--
   const capchaRef = useRef(null);
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
-
   const handleCapchaValidate = () => {
     const value = capchaRef.current.value;
     if (validateCaptcha(value) === true) {
@@ -34,7 +38,7 @@ const Login = () => {
         <img src={login} alt="" />
       </div>
       <div>
-        <form className="w-[536px] ">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-[536px] ">
           <p className="text-[40px] text-center">Login</p>
 
           {/* ----Email--- */}
@@ -44,10 +48,10 @@ const Login = () => {
             </label>
             <input
               type="email"
-              id="email"
+              {...register("mail", { required: true })}
               className=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500  w-full p-4"
               placeholder="Enter your email"
-              required
+              
             />
           </div>
           {/* -------Password-------- */}
@@ -60,7 +64,7 @@ const Login = () => {
             </label>
             <input
               type="password"
-              id="password"
+              {...register("password")}
               className=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500  w-full p-4"
               required
               placeholder="Enter your password"
