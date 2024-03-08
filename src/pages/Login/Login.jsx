@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import login from "../../assets/Login/login.png";
 import { TiTickOutline } from "react-icons/ti";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -10,13 +10,58 @@ import {
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  
+  // auth context
+  const { signinUser } = useContext(AuthContext);
+
+  // state variable
   const [loginDisable, setLoginDisable] = useState(true);
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
-  
+
+  // navigate
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  // form function
+  const onSubmit = (data) => {
+    console.log(data);
+    signinUser(data.email, data.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("logging successfully", user);
+
+        // notification
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Sign in ",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        // redirecting
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 2000);
+      })
+      .catch((error) => {
+        console.log("error message", error.message);
+
+        // notification
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${error.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
+
   // --CAPTCHA--
   const capchaRef = useRef(null);
   useEffect(() => {
@@ -48,10 +93,9 @@ const Login = () => {
             </label>
             <input
               type="email"
-              {...register("mail", { required: true })}
+              {...register("email", { required: true })}
               className=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500  w-full p-4"
               placeholder="Enter your email"
-              
             />
           </div>
           {/* -------Password-------- */}

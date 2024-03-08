@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useContext } from "react";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
@@ -16,18 +17,37 @@ const SignUp = () => {
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
   console.log("show from ");
-  // 
+  
+  // form function
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password)
       .then((userCredential) => {
-        console.log(userCredential.user);
-        
+        console.log("signing up", userCredential.user);
+
+        // notification
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Signed Up ",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
         // ----redirecting
-        navigate(from, { replace: true });
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 2000);
       })
       .catch((error) => {
-        console.log("Error Message", error.message);
+        console.log("Error Message", error);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "The email is already used",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
 

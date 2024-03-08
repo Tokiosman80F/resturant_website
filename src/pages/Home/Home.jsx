@@ -9,7 +9,9 @@ import MenuSectionCover from "./MenuSectionCover";
 import PopularMenuSection from "./PopularMenuSection";
 import Testimonial from "./Testimonial";
 import { Helmet } from "react-helmet-async";
+
 const Home = () => {
+  
     return (
         <>
           <Helmet><title>Captain Culinay | Home  </title></Helmet>
